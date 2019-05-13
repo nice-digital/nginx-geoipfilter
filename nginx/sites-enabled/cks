@@ -1,0 +1,19 @@
+upstream cks-live {
+    server $cks-host-1;
+    server $cks-host-2;
+}
+server {
+    listen 80;
+    root /usr/share/nginx/www;
+    index index.html index.htm;
+    server_name $cks-server-name;
+    access_log /var/log/nginx/cks.log proxy_log;
+    location /status.html {
+        root /usr/share/nginx/www;
+    }
+
+    set $geo_redirect https://www.nice.org.uk/cks-uk-only;
+    set $upstream http://cks-live;
+
+    include /etc/nginx/geoip/geoip;
+}
