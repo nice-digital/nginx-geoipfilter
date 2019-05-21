@@ -3,6 +3,8 @@ upstream bnf-live {
     server $bnf-host-2;
 }
 server {
+    include /etc/nginx/variables/variables.conf;
+
     listen 80;
     server_name $bnf-server-name;
     access_log /var/log/nginx/bnf.log proxy_log;
