@@ -9,5 +9,6 @@ server {
     set $geo_redirect https://www.nice.org.uk/bnf-uk-only;
     set $upstream http://bnf-live;
 
+    include /etc/nginx/variables/variables.conf;
     include /etc/nginx/geoip/geoip;
 }
