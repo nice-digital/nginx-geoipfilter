@@ -1,14 +1,14 @@
 server {
     listen 80;
-    server_name $geoip-info-server-name;
-    root /usr/share/nginx/html/ipinfo/;
+    server_name #{geoip-server-name};
+    root /etc/nginx/html/;
     error_log /var/log/nginx/ipinfo.log debug;
     access_log /var/log/nginx/ipinfo_access.log;
     location / {
         return $scheme://$host/result/?ipaddr=$remote_addr&countrycode=$geoip_country_code&proxy=$http_x_fowarded_for;
     }
     location /result/ {
-        index paramoutput.html;
+        index geoipinfo.html;
     }
     location /test/ {
         return 201;

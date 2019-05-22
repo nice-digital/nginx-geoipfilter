@@ -1,0 +1,18 @@
+<div>IP <span id="ipaddr"></span></div>
+<div>Proxy <span id="proxy"></span></div>
+<div>Country Code <span id="countrycode"></span></div>
+
+<script>
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var ipaddr = url.searchParams.get("ipaddr");
+    document.getElementById("ipaddr").textContent = ipaddr
+
+    var proxy = url.searchParams.get("proxy");
+    document.getElementById("proxy").textContent = proxy
+
+    var countrycode = url.searchParams.get("countrycode");
+    document.getElementById("countrycode").textContent = countrycode
+
+</script>
