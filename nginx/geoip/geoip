@@ -7,7 +7,7 @@ location / {
         rewrite ^ https://$host$request_uri? permanent;
     }
     set $disallow 1;
-    if ($http_user_agent ~* googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com|pingdom) {
+    if ($http_user_agent ~* googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com|pingdom|lighthouse|hotjar) {
         set $disallow 0;
     }
     if ($uk_request = yes) {
