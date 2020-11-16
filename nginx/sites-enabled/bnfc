@@ -1,6 +1,7 @@
 upstream bnfc-live {
     server #{bnfc-host-1};
     server #{bnfc-host-2};
+    keepalive 32;
 }
 server {
     listen 80;

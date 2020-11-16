@@ -1,6 +1,7 @@
 upstream cks-live {
     server #{cks-host-1};
     server #{cks-host-2};
+    keepalive 32;
 }
 server {
     listen 80;
