@@ -1,6 +1,7 @@
 upstream bnf-live {
     server #{bnf-host-1};
     server #{bnf-host-2};
+    keepalive 32;
 }
 server {
     listen 80;
