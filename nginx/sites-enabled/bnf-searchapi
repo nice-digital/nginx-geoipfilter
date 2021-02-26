@@ -1,0 +1,14 @@
+upstream bnf-searchapi-live {
+    server #{bnf-searchapi-host-1};
+    server #{bnf-searchapi-host-2};
+    keepalive 32;
+}
+server {
+    listen 80;
+    server_name #{bnf-searchapi-server-name};
+    access_log /var/log/nginx/bnf-searchapi.log proxy_log;
+    set $geo_redirect https://www.nice.org.uk/bnf-uk-only;
+    set $upstream http://bnf-searchapi-live;
+
+    include /etc/nginx/geoip/geoip;
+}
